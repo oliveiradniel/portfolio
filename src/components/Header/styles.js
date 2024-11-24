@@ -7,10 +7,11 @@ export const Container = styled.div`
   padding: 0 80px;
   position: fixed;
   width: 100%;
+  z-index: 1;
 `;
 
 export const SelectContainer = styled.div`
-  margin-top: 10px;
+  padding-top: 10px;
 `;
 
 export const Select = styled.button`

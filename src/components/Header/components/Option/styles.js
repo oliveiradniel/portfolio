@@ -45,8 +45,9 @@ export const Container = styled.div`
           animation: ${optionsOut} 0.2s forwards;
         `}
 
+  transition: background-color 0.2s ease-in;
+
   &:hover {
-    transition: background-color 0.2s ease-in;
     background-color: rgba(255, 255, 255, 0.6);
   }
 

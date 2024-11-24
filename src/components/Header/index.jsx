@@ -10,7 +10,7 @@ import { Container, Select, SelectContainer } from './styles';
 
 export default function Header() {
   const [isTheLanguageSelectionOpen, setIsTheLanguageSelectionOpen] =
-    useState(true);
+    useState(false);
   const [selectedLanguage, setSelectedLanguage] = useState('Portuguese');
 
   function handleOnClickSelect() {
