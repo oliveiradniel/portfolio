@@ -1,5 +1,12 @@
 import styled, { css, keyframes } from 'styled-components';
 
+const shake = keyframes`
+  0% { rotate: 0deg; }
+  30% { rotate: 10deg; }
+  60% { rotate: -10deg; }
+  100% { rotate: 0deg; }
+`;
+
 const moveIn = keyframes`
   from {
     opacity: 0;
@@ -82,11 +89,15 @@ export const Content = styled.div`
       text-align: center;
       width: 60px;
 
-      img {
-        width: 40px;
-      }
-
       figure {
+        img {
+          width: 40px;
+
+          &:hover {
+            animation: ${shake} 0.4s;
+          }
+        }
+
         figcaption {
           color: ${({ theme }) => theme.colors.text.main};
           font-size: 10px;
