@@ -1,4 +1,26 @@
-import styled from 'styled-components';
+import styled, { css, keyframes } from 'styled-components';
+
+const moveIn = keyframes`
+  from {
+    opacity: 0;
+    left: 0;
+  }
+  to {
+    opacity: 1;
+    left: 50%;
+  }
+`;
+
+const moveOut = keyframes`
+  from {
+    opacity: 1;
+    left: 50%;
+  }
+  to {
+    opacity: 0;
+    left: 0;
+  }
+`;
 
 export const Container = styled.div`
   display: flex;
@@ -16,31 +38,21 @@ export const Content = styled.div`
   .greeting-container {
     text-align: end;
 
-    &:first-child {
+    p {
       font-weight: 200;
     }
 
     p + p {
-      color: '#fff';
       font-size: 32px;
-      font-weight: 100;
-
-      span {
-        font-weight: 250;
-      }
     }
   }
 
   .description-container {
-    font-weight: 200;
+    font-weight: 300;
     margin-top: 44px;
 
     p {
-      font-size: 18px;
-
-      span {
-        font-weight: 300;
-      }
+      font-size: 22px;
     }
   }
 
@@ -84,6 +96,8 @@ export const Content = styled.div`
   }
 `;
 
+export const ButtonContainer = styled.div``;
+
 export const Button = styled.button`
   border: none;
   background-image: linear-gradient(
@@ -101,4 +115,48 @@ export const Button = styled.button`
   max-width: 600px;
   position: relative;
   width: 100%;
+
+  background-color: ${({ theme }) => theme.colors.primary.light};
+  overflow: hidden;
+  transition: all 0.4s ease-in-out;
+  border: 0.5px solid ${({ theme }) => theme.colors.backgroundColor};
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background-color: ${({ theme }) =>
+      theme.colors.backgroundColor}; /* cor do preenchimento */
+    transition: left 0.4s ease; /* transição suave para o preenchimento */
+  }
+
+  ${({ isTheMouseOverTheButton }) =>
+    isTheMouseOverTheButton &&
+    css`
+      border: 0.5px solid ${({ theme }) => theme.colors.text.lighter};
+
+      &::after {
+        left: 0; /* Faz o pseudo-elemento ir para a esquerda, preenchendo o botão */
+      }
+    `}
+`;
+
+export const Arrow = styled.img`
+  position: absolute;
+  left: 0;
+  top: 90px;
+  opacity: 0;
+  cursor: pointer;
+
+  ${({ isTheMouseOverTheButton }) =>
+    isTheMouseOverTheButton
+      ? css`
+          animation: ${moveIn} 0.4s forwards;
+        `
+      : css`
+          animation: ${moveOut} 0.4s forwards;
+        `}
 `;
