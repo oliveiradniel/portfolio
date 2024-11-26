@@ -33,14 +33,17 @@ export const Container = styled.div`
   display: flex;
   justify-content: center;
   padding: 0 10px;
+  padding-bottom: 80px;
   width: 100%;
 `;
 
 export const Content = styled.div`
+  border-radius: 8px 8px 0 0;
   position: relative;
-  margin-top: 140px;
-  max-width: 600px;
+  margin-top: 60px;
+  max-width: 660px;
   width: 100%;
+  padding: 40px;
 
   .greeting-container {
     text-align: end;
@@ -55,7 +58,7 @@ export const Content = styled.div`
   }
 
   .description-container {
-    font-weight: 300;
+    font-weight: 600;
     margin-top: 44px;
 
     p {
@@ -78,6 +81,7 @@ export const Content = styled.div`
   .social-media {
     align-items: center;
     border-bottom: 0.5px solid ${({ theme }) => theme.colors.text.lighter};
+    border-radius: 4px;
     border-top: 0.5px solid ${({ theme }) => theme.colors.text.lighter};
     display: flex;
     justify-content: space-evenly;
@@ -88,6 +92,7 @@ export const Content = styled.div`
     a {
       text-align: center;
       width: 60px;
+      font-weight: 500;
 
       figure {
         img {
@@ -158,7 +163,7 @@ export const Button = styled.button`
 export const Arrow = styled.img`
   position: absolute;
   left: 0;
-  top: 90px;
+  top: 130px;
   opacity: 0;
   cursor: pointer;
 

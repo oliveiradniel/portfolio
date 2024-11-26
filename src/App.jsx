@@ -5,7 +5,7 @@ import light from './assets/styles/themes/light/styles';
 
 import Header from './components/Header';
 import MainContent from './components/MainContent';
-import FirstPage from './components/FirstPage';
+import FirstPage from './components/FirstFrame';
 
 function App() {
   return (
