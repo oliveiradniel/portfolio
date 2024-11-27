@@ -10,11 +10,12 @@ export default createGlobalStyle`
 
   body {
     background-color: ${({ theme }) => theme.colors.backgroundColor};
-    color: ${({ theme }) => theme.colors.text.main};
+    color: ${({ theme }) => theme.colors.text.light};
   }
 
   button {
     cursor: pointer;
+    color: ${({ theme }) => theme.colors.text.light};
   }
 
   a {

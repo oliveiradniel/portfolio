@@ -29,6 +29,12 @@ const moveOut = keyframes`
   }
 `;
 
+const blink = keyframes`
+  50% {
+    border-color: transparent;
+  }
+`;
+
 export const Container = styled.div`
   display: flex;
   justify-content: center;
@@ -44,18 +50,6 @@ export const Content = styled.div`
   max-width: 660px;
   width: 100%;
   padding: 40px;
-
-  .greeting-container {
-    text-align: end;
-
-    p {
-      font-weight: 200;
-    }
-
-    p + p {
-      font-size: 32px;
-    }
-  }
 
   .description-container {
     font-weight: 600;
@@ -109,6 +103,39 @@ export const Content = styled.div`
         }
       }
     }
+  }
+`;
+
+export const GreetingContainer = styled.div`
+  height: 80px;
+  text-align: end;
+
+  p {
+    font-weight: 200;
+    border-right: 2px solid ${({ theme }) => theme.colors.text.light};
+    animation: ${blink} 0.75s infinite ease-in-out;
+
+    ${({ firstAnimationFinished }) =>
+      firstAnimationFinished &&
+      css`
+        animation-play-state: paused;
+        border-right: 2px solid ${({ theme }) => theme.colors.backgroundColor};
+      `}
+  }
+
+  span {
+    display: block;
+    font-size: 32px;
+    font-weight: 300;
+    border-right: 2px solid ${({ theme }) => theme.colors.text.light};
+    animation: ${blink} 0.75s infinite ease-in-out;
+
+    ${({ secondAnimationFinished }) =>
+      secondAnimationFinished &&
+      css`
+        animation-play-state: paused;
+        border-right: 2px solid ${({ theme }) => theme.colors.backgroundColor};
+      `}
   }
 `;
 
