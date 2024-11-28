@@ -194,12 +194,14 @@ export const Arrow = styled.img`
   opacity: 0;
   cursor: pointer;
 
-  ${({ isTheMouseOverTheButton }) =>
+  ${({ isTheMouseOverTheButton, animationTriggered }) =>
     isTheMouseOverTheButton
       ? css`
           animation: ${moveIn} 0.4s forwards;
         `
-      : css`
+      : !isTheMouseOverTheButton &&
+        animationTriggered &&
+        css`
           animation: ${moveOut} 0.4s forwards;
         `}
 `;

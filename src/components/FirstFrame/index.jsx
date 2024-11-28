@@ -14,6 +14,14 @@ export default function FirstPage() {
   const [firstAnimationFinished, setFirstAnimationFinished] = useState(false);
   const [secondAnimationFinished, setSecondAnimationFinished] = useState(false);
 
+  const [animationTriggered, setAnimationTriggered] = useState(false);
+
+  useEffect(() => {
+    if (isTheMouseOverTheButton && !animationTriggered) {
+      setAnimationTriggered(true);
+    }
+  }, [isTheMouseOverTheButton, animationTriggered]);
+
   useEffect(() => {
     const firstGreetingToBeAppliedTheEffect = 'Olá visitante,';
     const secondGreetingToBeAppliedTheEffect = 'meu nome é Daniel.';
@@ -52,8 +60,6 @@ export default function FirstPage() {
     return () => clearTimeout(firstTimeout, secondTimeout);
   }, []);
 
-  console.log(firstAnimationFinished);
-
   return (
     <Container>
       <Content>
@@ -77,6 +83,7 @@ export default function FirstPage() {
             width={40}
             className="arrow"
             isTheMouseOverTheButton={isTheMouseOverTheButton}
+            animationTriggered={animationTriggered}
           />
         </ButtonContainer>
         <div className="description-container">
