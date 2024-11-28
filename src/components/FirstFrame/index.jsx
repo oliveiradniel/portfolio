@@ -7,7 +7,7 @@ import linkedin from '../../assets/icons/linkedin.svg';
 import instagram from '../../assets/icons/instagram.svg';
 import arrow from '../../assets/icons/arrow-button.svg';
 
-import { Arrow, Button, ButtonContainer, Container, Content, GreetingContainer } from './styles';
+import { Arrow, Button, Container, Content, GreetingContainer } from './styles';
 
 export default function FirstPage() {
   const [isTheMouseOverTheButton, setIsTheMouseOverTheButton] = useState(false);
@@ -67,16 +67,11 @@ export default function FirstPage() {
           <p id='first-text' />
           <span id='second-text' />
         </GreetingContainer>
-        <ButtonContainer
+        <Button
           isTheMouseOverTheButton={isTheMouseOverTheButton} onMouseEnter={() => setIsTheMouseOverTheButton(true)}
           onMouseLeave={() => setIsTheMouseOverTheButton(false)}
         >
-          <Button
-            type="button"
-            isTheMouseOverTheButton={isTheMouseOverTheButton}
-          >
           {'< Clique aqui e veja meus serviços />'}
-          </Button>
           <Arrow
             src={arrow}
             alt="Arrow"
@@ -85,7 +80,7 @@ export default function FirstPage() {
             isTheMouseOverTheButton={isTheMouseOverTheButton}
             animationTriggered={animationTriggered}
           />
-        </ButtonContainer>
+        </Button>
         <div className="description-container">
           <p>
             Sou um desenvolvedor focado em criar {`API's RESTFUL`} e aplicações fluídas e responsivas.

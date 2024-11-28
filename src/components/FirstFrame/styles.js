@@ -45,11 +45,11 @@ export const Container = styled.div`
 
 export const Content = styled.div`
   border-radius: 8px 8px 0 0;
+  padding: 40px;
   position: relative;
   margin-top: 60px;
   max-width: 660px;
   width: 100%;
-  padding: 40px;
 
   .description-container {
     font-weight: 600;
@@ -64,7 +64,6 @@ export const Content = styled.div`
     align-items: center;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     margin-top: 78px;
 
     p {
@@ -84,9 +83,9 @@ export const Content = styled.div`
     width: 200px;
 
     a {
+      font-weight: 500;
       text-align: center;
       width: 60px;
-      font-weight: 500;
 
       figure {
         img {
@@ -111,97 +110,88 @@ export const GreetingContainer = styled.div`
   text-align: end;
 
   p {
-    font-weight: 200;
+    animation: ${blink} 0.75s infinite;
     border-right: 2px solid ${({ theme }) => theme.colors.text.light};
-    animation: ${blink} 0.75s infinite ease-in-out;
+    font-weight: 300;
 
     ${({ firstAnimationFinished }) =>
       firstAnimationFinished &&
       css`
-        animation-play-state: paused;
         border-right: 2px solid ${({ theme }) => theme.colors.backgroundColor};
       `}
   }
 
   span {
+    animation: ${blink} 0.75s infinite;
+    border-right: 2px solid ${({ theme }) => theme.colors.text.light};
     display: block;
     font-size: 32px;
     font-weight: 300;
-    border-right: 2px solid ${({ theme }) => theme.colors.text.light};
-    animation: ${blink} 0.75s infinite ease-in-out;
 
     ${({ secondAnimationFinished }) =>
       secondAnimationFinished &&
       css`
-        animation-play-state: paused;
         border-right: 2px solid ${({ theme }) => theme.colors.backgroundColor};
       `}
   }
 `;
 
-export const ButtonContainer = styled.div``;
-
 export const Button = styled.button`
-  border: none;
+  align-items: center;
   background-image: linear-gradient(
     to left,
     rgb(255, 249, 91),
     rgb(211, 212, 80)
   );
+  border: 0.5px solid ${({ theme }) => theme.colors.backgroundColor};
   border-radius: 4px;
   box-shadow: 8px 20px 20px -22px rgba(0, 0, 0, 0.25);
-  color: ${({ theme }) => theme.colors.text.main};
+  display: flex;
   font-size: 16px;
   font-weight: 200;
   height: 54px;
-  margin-top: 12px;
-  max-width: 600px;
+  justify-content: center;
   position: relative;
   width: 100%;
 
-  background-color: ${({ theme }) => theme.colors.primary.light};
-  overflow: hidden;
-  transition: all 0.4s ease-in-out;
-  border: 0.5px solid ${({ theme }) => theme.colors.backgroundColor};
+  transition: border 0.4s ease-in-out;
 
   &::after {
+    background-color: ${({ theme }) => theme.colors.backgroundColor};
+    border-radius: 4px;
     content: '';
+    height: 100%;
+    left: -102%;
     position: absolute;
     top: 0;
-    left: -100%;
     width: 100%;
-    height: 100%;
-    background-color: ${({ theme }) =>
-      theme.colors.backgroundColor}; /* cor do preenchimento */
-    transition: left 0.4s ease; /* transição suave para o preenchimento */
+
+    transition: left 0.3s ease-in-out;
   }
 
-  ${({ isTheMouseOverTheButton }) =>
-    isTheMouseOverTheButton &&
-    css`
-      border: 0.5px solid ${({ theme }) => theme.colors.text.lighter};
+  &:hover {
+    border: 0.5px solid ${({ theme }) => theme.colors.text.lighter};
 
-      &::after {
-        left: 0; /* Faz o pseudo-elemento ir para a esquerda, preenchendo o botão */
-      }
-    `}
+    &::after {
+      left: 0;
+    }
+  }
 `;
 
 export const Arrow = styled.img`
-  position: absolute;
-  left: 0;
-  top: 130px;
-  opacity: 0;
   cursor: pointer;
+  opacity: 0;
+  position: absolute;
+  z-index: 1;
 
   ${({ isTheMouseOverTheButton, animationTriggered }) =>
     isTheMouseOverTheButton
       ? css`
-          animation: ${moveIn} 0.4s forwards;
+          animation: ${moveIn} 0.3s forwards;
         `
       : !isTheMouseOverTheButton &&
         animationTriggered &&
         css`
-          animation: ${moveOut} 0.4s forwards;
+          animation: ${moveOut} 0.3s forwards;
         `}
 `;
