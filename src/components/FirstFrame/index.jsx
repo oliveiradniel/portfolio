@@ -21,7 +21,7 @@ export default function FirstPage() {
            />
           <Typewriter
             id="p-animated-text"
-            animatedText='meu nome é Daniel'
+            animatedText='meu nome é Daniel.'
             speed={70}
             timeToExecute={1050}
           />
@@ -38,7 +38,7 @@ export default function FirstPage() {
         </Button>
         <DescriptionContainer>
           <p>
-            Sou um desenvolvedor focado em criar {`API's RESTFUL`} e aplicações fluídas e responsivas.
+            Sou um desenvolvedor focado em criar {`API's RESTFUL`} e aplicações web fluídas e responsivas.
           </p>
         </DescriptionContainer>
 

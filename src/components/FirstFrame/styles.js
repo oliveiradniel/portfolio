@@ -2,9 +2,9 @@ import styled, { keyframes } from 'styled-components';
 
 const shake = keyframes`
   0% { rotate: 0deg; }
-  30% { rotate: 10deg; }
-  60% { rotate: -10deg; }
-  100% { rotate: 0deg; }
+  30% { rotate: 10deg; transform: scale(105%); }
+  60% { rotate: -10deg; transform: scale(110%); }
+  100% { rotate: 0deg; transform: scale(100%); }
 `;
 
 const moveIn = keyframes`
@@ -32,9 +32,6 @@ export const Content = styled.div`
   margin-top: 60px;
   max-width: 660px;
   width: 100%;
-
-  .description-container {
-  }
 `;
 
 export const DescriptionContainer = styled.div`
@@ -73,12 +70,13 @@ export const SocialMediaContainer = styled.div`
       width: 60px;
 
       figure {
-        img {
-          width: 40px;
-
-          &:hover {
+        &:hover {
+          img {
             animation: ${shake} 0.4s;
           }
+        }
+        img {
+          width: 40px;
         }
 
         figcaption {
