@@ -18,8 +18,8 @@ export default function Option({ isVisible, language, onClick }) {
 
   return (
     <Container
-      animationTriggered={animationTriggered}
-      isVisible={isVisible}
+      $animationTriggered={animationTriggered}
+      $isVisible={isVisible}
       onClick={onClick}
     >
       <img

@@ -28,7 +28,7 @@ export default function Header() {
         <Select
           type="button"
           onClick={handleOnClickSelect}
-          isTheLanguageSelectionOpen={isTheLanguageSelectionOpen}
+          $isTheLanguageSelectionOpen={isTheLanguageSelectionOpen}
         >
           <img
             src={selectedLanguage === 'Portuguese' ? flagOfBrazil : flagOfUSA}

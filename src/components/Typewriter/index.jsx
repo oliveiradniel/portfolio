@@ -38,7 +38,7 @@ export default function Typewriter({ id, animatedText, speed, timeToExecute }) {
   }, [id, animatedText, speed, timeToExecute]);
 
   return (
-    <AnimatedText animationFinished={animationFinished}>
+    <AnimatedText $animationFinished={animationFinished}>
       <p id={id} />
     </AnimatedText>
   );
