@@ -29,12 +29,6 @@ const moveOut = keyframes`
   }
 `;
 
-const blink = keyframes`
-  50% {
-    border-color: transparent;
-  }
-`;
-
 export const Container = styled.div`
   display: flex;
   justify-content: center;
@@ -108,32 +102,6 @@ export const Content = styled.div`
 export const GreetingContainer = styled.div`
   height: 80px;
   text-align: end;
-
-  p {
-    animation: ${blink} 0.75s infinite;
-    border-right: 2px solid ${({ theme }) => theme.colors.text.light};
-    font-weight: 300;
-
-    ${({ firstAnimationFinished }) =>
-      firstAnimationFinished &&
-      css`
-        border-right: 2px solid ${({ theme }) => theme.colors.backgroundColor};
-      `}
-  }
-
-  span {
-    animation: ${blink} 0.75s infinite;
-    border-right: 2px solid ${({ theme }) => theme.colors.text.light};
-    display: block;
-    font-size: 32px;
-    font-weight: 300;
-
-    ${({ secondAnimationFinished }) =>
-      secondAnimationFinished &&
-      css`
-        border-right: 2px solid ${({ theme }) => theme.colors.backgroundColor};
-      `}
-  }
 `;
 
 export const Button = styled.button`

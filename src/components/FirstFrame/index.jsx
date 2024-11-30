@@ -7,12 +7,12 @@ import linkedin from '../../assets/icons/linkedin.svg';
 import instagram from '../../assets/icons/instagram.svg';
 import arrow from '../../assets/icons/arrow-button.svg';
 
+import Typewriter from '../Typewriter';
+
 import { Arrow, Button, Container, Content, GreetingContainer } from './styles';
 
 export default function FirstPage() {
   const [isTheMouseOverTheButton, setIsTheMouseOverTheButton] = useState(false);
-  const [firstAnimationFinished, setFirstAnimationFinished] = useState(false);
-  const [secondAnimationFinished, setSecondAnimationFinished] = useState(false);
 
   const [animationTriggered, setAnimationTriggered] = useState(false);
 
@@ -22,50 +22,22 @@ export default function FirstPage() {
     }
   }, [isTheMouseOverTheButton, animationTriggered]);
 
-  useEffect(() => {
-    const firstGreetingToBeAppliedTheEffect = 'Olá visitante,';
-    const secondGreetingToBeAppliedTheEffect = 'meu nome é Daniel.';
-
-    let firstIndex = 0
-    let secondIndex = 0
-    let firstTimeout = null;
-    let secondTimeout = null;
-
-    function typewriterFirstText() {
-      if (!(firstIndex < firstGreetingToBeAppliedTheEffect.length)) {
-        setFirstAnimationFinished(true);
-      } else {
-        document.getElementById('first-text').innerHTML += firstGreetingToBeAppliedTheEffect.charAt(firstIndex);
-        firstIndex += 1;
-        firstTimeout = setTimeout(typewriterFirstText, 80);
-      }
-
-    }
-
-    function typewriterSecondText() {
-      if (!(secondIndex < secondGreetingToBeAppliedTheEffect.length)) {
-        setSecondAnimationFinished(true);
-      } else {
-        document.getElementById('second-text').innerHTML += secondGreetingToBeAppliedTheEffect.charAt(secondIndex);
-        secondIndex += 1;
-        secondTimeout = setTimeout(typewriterSecondText, 80);
-      }
-    }
-
-    typewriterFirstText();
-    setTimeout(() => {
-      typewriterSecondText();
-    }, 1300);
-
-    return () => clearTimeout(firstTimeout, secondTimeout);
-  }, []);
-
   return (
     <Container>
       <Content>
-        <GreetingContainer firstAnimationFinished={firstAnimationFinished} secondAnimationFinished={secondAnimationFinished}>
-          <p id='first-text' />
-          <span id='second-text' />
+        <GreetingContainer>
+          <Typewriter
+            id="p-animated-text"
+            animatedText='Olá visitante,'
+            speed={60}
+           />
+          <Typewriter
+            id="span-animated-text"
+            animatedText='meu nome é Daniel'
+            speed={70}
+            timeToExecute={1050}
+          />
+
         </GreetingContainer>
         <Button
           isTheMouseOverTheButton={isTheMouseOverTheButton} onMouseEnter={() => setIsTheMouseOverTheButton(true)}
