@@ -7,7 +7,7 @@ import arrow from '../../assets/icons/arrow-button.svg';
 
 import Typewriter from '../Typewriter';
 
-import { Button, Container, Content, GreetingContainer } from './styles';
+import { Button, Container, Content, DescriptionContainer, GreetingContainer, SocialMediaContainer } from './styles';
 
 export default function FirstPage() {
   return (
@@ -36,13 +36,13 @@ export default function FirstPage() {
             className="arrow"
           />
         </Button>
-        <div className="description-container">
+        <DescriptionContainer>
           <p>
             Sou um desenvolvedor focado em criar {`API's RESTFUL`} e aplicações fluídas e responsivas.
           </p>
-        </div>
+        </DescriptionContainer>
 
-        <div className="social-media-container">
+        <SocialMediaContainer>
           <p>Acesse minhas redes:</p>
           <nav className="social-media">
             <a
@@ -76,7 +76,7 @@ export default function FirstPage() {
               </figure>
             </a>
           </nav>
-        </div>
+        </SocialMediaContainer>
       </Content>
     </Container>
   );

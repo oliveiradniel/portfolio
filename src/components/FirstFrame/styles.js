@@ -22,7 +22,6 @@ export const Container = styled.div`
   display: flex;
   justify-content: center;
   padding: 0 10px;
-  padding-bottom: 80px;
   width: 100%;
 `;
 
@@ -35,23 +34,26 @@ export const Content = styled.div`
   width: 100%;
 
   .description-container {
-    font-weight: 600;
-    margin-top: 44px;
-
-    p {
-      font-size: 22px;
-    }
   }
+`;
 
-  .social-media-container {
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-    margin-top: 78px;
+export const DescriptionContainer = styled.div`
+  font-weight: 600;
+  margin-top: 10px;
 
-    p {
-      font-weight: 200;
-    }
+  p {
+    font-size: 20px;
+  }
+`;
+
+export const SocialMediaContainer = styled.div`
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  margin-top: 78px;
+
+  p {
+    font-weight: 200;
   }
 
   .social-media {
@@ -108,6 +110,7 @@ export const Button = styled.button`
   font-weight: 200;
   height: 54px;
   justify-content: center;
+  margin-top: 80px;
   position: relative;
   width: 100%;
 
