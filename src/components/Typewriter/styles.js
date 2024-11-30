@@ -17,4 +17,8 @@ export const AnimatedText = styled.div`
         border-right: 2px solid ${({ theme }) => theme.colors.backgroundColor};
       `}
   }
+
+  & + & {
+    font-size: 32px;
+  }
 `;

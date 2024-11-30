@@ -1,4 +1,4 @@
-import styled, { css, keyframes } from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 
 const shake = keyframes`
   0% { rotate: 0deg; }
@@ -15,17 +15,6 @@ const moveIn = keyframes`
   to {
     opacity: 1;
     left: 50%;
-  }
-`;
-
-const moveOut = keyframes`
-  from {
-    opacity: 1;
-    left: 50%;
-  }
-  to {
-    opacity: 0;
-    left: 0;
   }
 `;
 
@@ -143,23 +132,17 @@ export const Button = styled.button`
     &::after {
       left: 0;
     }
+
+    .arrow {
+      animation: ${moveIn} 0.6s forwards;
+    }
   }
-`;
 
-export const Arrow = styled.img`
-  cursor: pointer;
-  opacity: 0;
-  position: absolute;
-  z-index: 1;
-
-  ${({ isTheMouseOverTheButton, animationTriggered }) =>
-    isTheMouseOverTheButton
-      ? css`
-          animation: ${moveIn} 0.3s forwards;
-        `
-      : !isTheMouseOverTheButton &&
-        animationTriggered &&
-        css`
-          animation: ${moveOut} 0.3s forwards;
-        `}
+  .arrow {
+    cursor: pointer;
+    left: 0;
+    opacity: 0;
+    position: absolute;
+    z-index: 1;
+  }
 `;
