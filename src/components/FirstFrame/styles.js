@@ -1,4 +1,4 @@
-import styled, { keyframes } from 'styled-components';
+import styled, { css, keyframes } from 'styled-components';
 
 const shake = keyframes`
   0% { rotate: 0deg; }
@@ -145,5 +145,15 @@ export const Button = styled.button`
     opacity: 0;
     position: absolute;
     z-index: 1;
+
+    ${({ wasItClicked }) =>
+      wasItClicked
+        ? css`
+            transition: transform 0.2s ease-in;
+            transform: rotate(90deg);
+          `
+        : css`
+            transform: rotate(0deg);
+          `}
   }
 `;

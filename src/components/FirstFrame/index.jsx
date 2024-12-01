@@ -1,5 +1,7 @@
 /* eslint-disable prettier/prettier */
 
+import { useState } from 'react';
+
 import github from '../../assets/icons/github.svg';
 import linkedin from '../../assets/icons/linkedin.svg';
 import instagram from '../../assets/icons/instagram.svg';
@@ -10,9 +12,23 @@ import Typewriter from '../Typewriter';
 import { Button, Container, Content, DescriptionContainer, GreetingContainer, SocialMediaContainer } from './styles';
 
 export default function FirstFrame() {
-  function ScrollToSecondFrame() {
+  const [wasItClicked, setWasItClicked] = useState(false);
+
+  function delay(ms) {
+    return new Promise(resolve => {setTimeout(resolve, ms)});
+  }
+
+  async function ScrollToSecondFrame() {
+    setWasItClicked(true);
+
+    await delay(200)
+
     const element = document.getElementById('services');
-    element.scrollIntoView({ behavior: 'smooth' })
+    element.scrollIntoView({ behavior: 'smooth' });
+
+    await delay(300)
+
+    setWasItClicked(false);
   }
 
   return (
@@ -32,7 +48,7 @@ export default function FirstFrame() {
           />
 
         </GreetingContainer>
-        <Button onClick={ScrollToSecondFrame}>
+        <Button onClick={ScrollToSecondFrame} wasItClicked={wasItClicked}>
           {'< Clique aqui e veja meus serviços />'}
           <img
             src={arrow}
