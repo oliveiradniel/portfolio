@@ -7,6 +7,7 @@ import Header from './components/Header';
 import MainContent from './components/MainContent';
 import SecondFrame from './components/SecondFrame';
 import FirstFrame from './components/FirstFrame';
+import ThirdFrame from './components/ThirdFrame';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
       <MainContent>
         <FirstFrame />
         <SecondFrame />
+        <ThirdFrame />
       </MainContent>
     </ThemeProvider>
   );
