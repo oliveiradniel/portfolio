@@ -10,6 +10,11 @@ import Typewriter from '../Typewriter';
 import { Button, Container, Content, DescriptionContainer, GreetingContainer, SocialMediaContainer } from './styles';
 
 export default function FirstFrame() {
+  function ScrollToSecondFrame() {
+    const element = document.getElementById('services');
+    element.scrollIntoView({ behavior: 'smooth' })
+  }
+
   return (
     <Container>
       <Content>
@@ -27,7 +32,7 @@ export default function FirstFrame() {
           />
 
         </GreetingContainer>
-        <Button>
+        <Button onClick={ScrollToSecondFrame}>
           {'< Clique aqui e veja meus serviços />'}
           <img
             src={arrow}
