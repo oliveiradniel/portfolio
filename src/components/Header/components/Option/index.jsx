@@ -23,8 +23,8 @@ export default function Option({ isVisible, language, onClick }) {
       onClick={onClick}
     >
       <img
-        src={language === 'Portuguese' ? flagOfBrazil : flagOfUSA}
-        alt={language === 'Portuguese' ? 'pt-br' : 'en'}
+        src={language === 'Português' ? flagOfBrazil : flagOfUSA}
+        alt={language === 'Português' ? 'pt-br' : 'en'}
         width={14}
       />
       <span>{language}</span>

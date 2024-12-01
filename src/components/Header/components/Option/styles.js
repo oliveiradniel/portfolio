@@ -36,13 +36,13 @@ export const Container = styled.div`
   width: 130px;
   -webkit-backdrop-filter: blur(3px);
 
-  ${({ isVisible, animationTriggered }) =>
-    isVisible
+  ${({ $isVisible, $animationTriggered }) =>
+    $isVisible
       ? css`
           animation: ${optionsIn} 0.2s forwards;
         `
-      : !isVisible &&
-        animationTriggered &&
+      : !$isVisible &&
+        $animationTriggered &&
         css`
           animation: ${optionsOut} 0.2s forwards;
         `}

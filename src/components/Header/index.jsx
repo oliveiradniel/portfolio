@@ -43,12 +43,12 @@ export default function Header() {
 
         <Option
           isVisible={isTheLanguageSelectionOpen}
-          language="Portuguese"
+          language="Português"
           onClick={() => handleSelectedLanguage('Portuguese')}
         />
         <Option
           isVisible={isTheLanguageSelectionOpen}
-          language="English"
+          language="Inglês"
           onClick={() => handleSelectedLanguage('English')}
         />
       </SelectContainer>

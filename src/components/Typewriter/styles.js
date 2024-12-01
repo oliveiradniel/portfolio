@@ -11,8 +11,8 @@ export const AnimatedText = styled.div`
     animation: ${blink} 0.75s infinite;
     border-right: 2px solid ${({ theme }) => theme.colors.text.light};
 
-    ${({ animationFinished }) =>
-      animationFinished &&
+    ${({ $animationFinished }) =>
+      $animationFinished &&
       css`
         border-right: 2px solid ${({ theme }) => theme.colors.backgroundColor};
       `}

@@ -4,7 +4,12 @@ import PropTypes from 'prop-types';
 
 import { AnimatedText } from './styles';
 
-export default function Typewriter({ id, animatedText, speed, timeToExecute }) {
+export default function Typewriter({
+  id,
+  animatedText,
+  speed,
+  timeToExecute = null,
+}) {
   const [animationFinished, setAnimationFinished] = useState(false);
 
   useEffect(() => {
@@ -48,9 +53,6 @@ Typewriter.propTypes = {
   id: PropTypes.string.isRequired,
   animatedText: PropTypes.string.isRequired,
   speed: PropTypes.number.isRequired,
+  // eslint-disable-next-line react/require-default-props
   timeToExecute: PropTypes.number,
-};
-
-Typewriter.defaultProps = {
-  timeToExecute: null,
 };
