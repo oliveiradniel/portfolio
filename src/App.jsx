@@ -5,7 +5,7 @@ import light from './assets/styles/themes/light/styles';
 
 import Header from './components/Header';
 import MainContent from './components/MainContent';
-import FirstPage from './components/FirstFrame';
+import FirstFrame from './components/FirstFrame';
 
 function App() {
   return (
@@ -13,7 +13,7 @@ function App() {
       <GlobalStyles />
       <Header />
       <MainContent>
-        <FirstPage />
+        <FirstFrame />
       </MainContent>
       <br />
       <br />

@@ -22,11 +22,12 @@ export const Container = styled.div`
   display: flex;
   justify-content: center;
   padding: 0 10px;
+  position: sticky;
+  top: 0;
   width: 100%;
 `;
 
 export const Content = styled.div`
-  border-radius: 8px 8px 0 0;
   padding: 40px;
   position: relative;
   margin-top: 60px;
@@ -37,6 +38,7 @@ export const Content = styled.div`
 export const DescriptionContainer = styled.div`
   font-weight: 600;
   margin-top: 10px;
+  padding-left: 4px;
 
   p {
     font-size: 20px;
@@ -47,7 +49,7 @@ export const SocialMediaContainer = styled.div`
   align-items: center;
   display: flex;
   flex-direction: column;
-  margin-top: 78px;
+  margin-top: 84px;
 
   p {
     font-weight: 200;
@@ -89,6 +91,7 @@ export const SocialMediaContainer = styled.div`
 `;
 
 export const GreetingContainer = styled.div`
+  margin-top: 58px;
   height: 80px;
   text-align: end;
 `;
