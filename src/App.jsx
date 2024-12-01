@@ -6,6 +6,7 @@ import light from './assets/styles/themes/light/styles';
 import Header from './components/Header';
 import MainContent from './components/MainContent';
 import FirstFrame from './components/FirstFrame';
+import SecondFrame from './components/SecondFrame';
 
 function App() {
   return (
@@ -14,38 +15,8 @@ function App() {
       <Header />
       <MainContent>
         <FirstFrame />
+        <SecondFrame />
       </MainContent>
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
     </ThemeProvider>
   );
 }

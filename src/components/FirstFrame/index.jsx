@@ -9,7 +9,7 @@ import Typewriter from '../Typewriter';
 
 import { Button, Container, Content, DescriptionContainer, GreetingContainer, SocialMediaContainer } from './styles';
 
-export default function FirstPage() {
+export default function FirstFrame() {
   return (
     <Container>
       <Content>
