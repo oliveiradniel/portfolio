@@ -41,7 +41,6 @@ export default function FirstFrame() {
             Sou um desenvolvedor focado em criar {`API's RESTFUL`} e aplicações web fluídas e responsivas.
           </p>
         </DescriptionContainer>
-
         <SocialMediaContainer>
           <p>Acesse minhas redes:</p>
           <nav className="social-media">

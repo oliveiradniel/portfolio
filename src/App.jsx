@@ -5,8 +5,8 @@ import light from './assets/styles/themes/light/styles';
 
 import Header from './components/Header';
 import MainContent from './components/MainContent';
-import FirstFrame from './components/FirstFrame';
 import SecondFrame from './components/SecondFrame';
+import FirstFrame from './components/FirstFrame';
 
 function App() {
   return (

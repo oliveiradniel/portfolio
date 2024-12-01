@@ -22,9 +22,6 @@ export const Container = styled.div`
   display: flex;
   justify-content: center;
   padding: 0 10px;
-  position: sticky;
-  top: 0;
-  width: 100%;
 `;
 
 export const Content = styled.div`

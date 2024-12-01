@@ -5,5 +5,4 @@ export const Container = styled.div`
   padding: 0 10px;
   width: 100%;
   height: 640px;
-  z-index: 4;
 `;
