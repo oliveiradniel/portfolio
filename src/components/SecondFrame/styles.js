@@ -30,12 +30,12 @@ export const CardsContainer = styled.div`
   .card-description {
     background-color: ${({ theme }) => theme.colors.primary.light};
     border-radius: 4px;
+    box-shadow: 14px 14px 40px -22px rgba(0, 0, 0, 0.25);
     height: 300px;
     padding: 40px 25px;
     position: relative;
     transform: translateX(-25%);
     width: 280px;
-    box-shadow: 14px 14px 40px -22px rgba(0, 0, 0, 0.25);
 
     .card-description-title {
       font-size: 26px;

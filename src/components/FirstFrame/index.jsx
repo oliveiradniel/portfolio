@@ -21,12 +21,12 @@ export default function FirstFrame() {
   async function ScrollToSecondFrame() {
     setWasItClicked(true);
 
-    await delay(200)
+    await delay(200);
 
     const element = document.getElementById('services');
-    element.scrollIntoView({ behavior: 'smooth' });
+    element.scrollIntoView({ top: 20,behavior: 'smooth' });
 
-    await delay(300)
+    await delay(300);
 
     setWasItClicked(false);
   }
