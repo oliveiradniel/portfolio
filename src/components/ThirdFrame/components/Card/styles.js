@@ -11,7 +11,7 @@ export const Container = styled.div`
     width: 46%;
   }
 
-  img {
+  .projectImage {
     width: 40%;
   }
 
@@ -28,6 +28,17 @@ export const Container = styled.div`
       color: ${({ theme }) => theme.colors.gray[500]};
       font-size: 14px;
       margin-top: 8px;
+    }
+  }
+
+  .technologies {
+    align-items: center;
+    display: flex;
+    justify-content: end;
+    margin-top: 8px;
+
+    img + img {
+      margin-left: 8px;
     }
   }
 `;

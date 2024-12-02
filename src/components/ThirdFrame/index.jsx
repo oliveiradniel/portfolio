@@ -1,4 +1,9 @@
 import myContacts from '../../assets/images/mycontacts.svg';
+import react from '../../assets/icons/react.svg';
+import javascript from '../../assets/icons/javascript.svg';
+import css from '../../assets/icons/css.svg';
+import postgre from '../../assets/icons/postgre.svg';
+
 import Card from './components/Card';
 
 import { CardsContainer, Container, Title } from './styles';
@@ -12,28 +17,15 @@ export default function ThirdFrame() {
       </Title>
       <CardsContainer>
         <Card
+          image={myContacts}
+          altImage="MyContacts"
           projectName="MyContacts (JStack)"
           description="Salve seus contatos importantes e de onde eles vieram."
         >
-          <img src={myContacts} alt="MyContacts" />
-        </Card>
-        <Card
-          projectName="MyContacts (JStack)"
-          description="Salve seus contatos importantes e de onde eles vieram."
-        >
-          <img src={myContacts} alt="MyContacts" />
-        </Card>
-        <Card
-          projectName="MyContacts (JStack)"
-          description="Salve seus contatos importantes e de onde eles vieram."
-        >
-          <img src={myContacts} alt="MyContacts" />
-        </Card>
-        <Card
-          projectName="MyContacts (JStack)"
-          description="Salve seus contatos importantes e de onde eles vieram."
-        >
-          <img src={myContacts} alt="MyContacts" />
+          <img src={react} alt="React" />
+          <img src={javascript} alt="JavaScript" />
+          <img src={css} alt="CSS" />
+          <img src={postgre} alt="Postgre" />
         </Card>
       </CardsContainer>
     </Container>
