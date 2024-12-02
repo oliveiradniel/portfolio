@@ -23,6 +23,18 @@ export default function ThirdFrame() {
         >
           <img src={myContacts} alt="MyContacts" />
         </Card>
+        <Card
+          projectName="MyContacts (JStack)"
+          description="Salve seus contatos importantes e de onde eles vieram."
+        >
+          <img src={myContacts} alt="MyContacts" />
+        </Card>
+        <Card
+          projectName="MyContacts (JStack)"
+          description="Salve seus contatos importantes e de onde eles vieram."
+        >
+          <img src={myContacts} alt="MyContacts" />
+        </Card>
       </CardsContainer>
     </Container>
   );
