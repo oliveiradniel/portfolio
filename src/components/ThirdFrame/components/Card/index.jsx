@@ -16,6 +16,9 @@ export default function Card({
         <span>{description}</span>
         <p>{projectName}</p>
         <div className="technologies">{children}</div>
+        <button type="button" onClick={() => console.log('info')}>
+          + INFORMAÇÕES
+        </button>
       </div>
     </Container>
   );

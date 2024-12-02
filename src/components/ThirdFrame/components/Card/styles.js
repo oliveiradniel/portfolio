@@ -12,7 +12,7 @@ export const Container = styled.div`
   }
 
   .projectImage {
-    width: 40%;
+    width: 50%;
   }
 
   .description {
@@ -39,6 +39,22 @@ export const Container = styled.div`
 
     img + img {
       margin-left: 8px;
+    }
+  }
+
+  button {
+    background-color: ${({ theme }) => theme.colors.backgroundColor};
+    border: 2px solid ${({ theme }) => theme.colors.text.main};
+    border-radius: 4px;
+    font-weight: 600;
+    margin-top: 16px;
+    height: 42px;
+
+    transition: all 0.3s ease-in-out;
+
+    &:hover {
+      background-color: ${({ theme }) => theme.colors.text.main};
+      color: ${({ theme }) => theme.colors.gray[100]};
     }
   }
 `;
