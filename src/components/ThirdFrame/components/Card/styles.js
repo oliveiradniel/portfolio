@@ -32,14 +32,9 @@ export const Container = styled.div`
   }
 
   .technologies {
-    align-items: center;
     display: flex;
-    justify-content: end;
-    margin-top: 8px;
-
-    img + img {
-      margin-left: 8px;
-    }
+    justify-content: space-between;
+    margin: 24px 0 16px 50%;
   }
 
   button {
@@ -47,7 +42,6 @@ export const Container = styled.div`
     border: 2px solid ${({ theme }) => theme.colors.text.main};
     border-radius: 4px;
     font-weight: 600;
-    margin-top: 16px;
     height: 42px;
 
     transition: all 0.3s ease-in-out;

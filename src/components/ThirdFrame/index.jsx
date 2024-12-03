@@ -22,10 +22,22 @@ export default function ThirdFrame() {
           projectName="MyContacts (JStack)"
           description="Salve seus contatos importantes e de onde eles vieram."
         >
-          <img src={react} alt="React" />
-          <img src={javascript} alt="JavaScript" />
-          <img src={css} alt="CSS" />
-          <img src={postgre} alt="Postgre" />
+          <div className="tooltip-container">
+            <span>React</span>
+            <img src={react} alt="React" />
+          </div>
+          <div className="tooltip-container">
+            <span>JavaScript</span>
+            <img src={javascript} alt="JavaScript" />
+          </div>
+          <div className="tooltip-container">
+            <span>CSS</span>
+            <img src={css} alt="CSS" />
+          </div>
+          <div className="tooltip-container">
+            <span>Postgre</span>
+            <img src={postgre} alt="Postgre" />
+          </div>
         </Card>
       </CardsContainer>
     </Container>
