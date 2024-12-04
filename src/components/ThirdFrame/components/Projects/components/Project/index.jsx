@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 
 import { Container } from './styles';
 
-export default function Card({
+export default function Project({
   image,
   altImage,
   projectName,
@@ -24,7 +24,7 @@ export default function Card({
   );
 }
 
-Card.propTypes = {
+Project.propTypes = {
   image: PropTypes.string.isRequired,
   altImage: PropTypes.string.isRequired,
   projectName: PropTypes.string.isRequired,
