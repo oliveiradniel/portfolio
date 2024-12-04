@@ -24,7 +24,11 @@ export default function FirstFrame() {
     await delay(200);
 
     const element = document.getElementById('services');
-    element.scrollIntoView({ top: 20,behavior: 'smooth' });
+
+    window.scrollTo({
+      top: element.offsetTop - 58,
+      behavior: 'smooth',
+    });
 
     await delay(300);
 
