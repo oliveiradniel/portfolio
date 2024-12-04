@@ -146,8 +146,8 @@ export const Button = styled.button`
     position: absolute;
     z-index: 1;
 
-    ${({ wasItClicked }) =>
-      wasItClicked
+    ${({ $wasItClicked }) =>
+      $wasItClicked
         ? css`
             transition: transform 0.2s ease-in;
             transform: rotate(90deg);

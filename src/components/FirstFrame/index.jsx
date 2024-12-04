@@ -52,7 +52,7 @@ export default function FirstFrame() {
           />
 
         </GreetingContainer>
-        <Button onClick={ScrollToSecondFrame} wasItClicked={wasItClicked}>
+        <Button onClick={ScrollToSecondFrame} $wasItClicked={wasItClicked}>
           {'< Clique aqui e veja meus serviços />'}
           <img
             src={arrow}
