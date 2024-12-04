@@ -6,7 +6,6 @@ export const Container = styled.div`
   position: relative;
 
   &:hover span {
-    color: ${({ theme }) => theme.colors.text.light};
     opacity: 1;
   }
 

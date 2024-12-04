@@ -1,8 +1,8 @@
-import myContacts from '../../../../../assets/images/mycontacts.svg';
-import react from '../../../../../assets/icons/react.svg';
-import javascript from '../../../../../assets/icons/javascript.svg';
-import css from '../../../../../assets/icons/css.svg';
-import postgre from '../../../../../assets/icons/postgre.svg';
+import myContacts from '../../../../assets/images/mycontacts.svg';
+import react from '../../../../assets/icons/react.svg';
+import javascript from '../../../../assets/icons/javascript.svg';
+import css from '../../../../assets/icons/css.svg';
+import postgre from '../../../../assets/icons/postgre.svg';
 
 export default [
   {
