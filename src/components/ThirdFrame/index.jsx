@@ -7,6 +7,7 @@ import postgre from '../../assets/icons/postgre.svg';
 import Card from './components/Card';
 
 import { CardsContainer, Container, Title } from './styles';
+import Tooltip from './components/Tooltip';
 
 export default function ThirdFrame() {
   return (
@@ -22,22 +23,18 @@ export default function ThirdFrame() {
           projectName="MyContacts (JStack)"
           description="Salve seus contatos importantes e de onde eles vieram."
         >
-          <div className="tooltip-container">
-            <span>React</span>
+          <Tooltip tooltip="React">
             <img src={react} alt="React" />
-          </div>
-          <div className="tooltip-container">
-            <span>JavaScript</span>
+          </Tooltip>
+          <Tooltip tooltip="JavaScript">
             <img src={javascript} alt="JavaScript" />
-          </div>
-          <div className="tooltip-container">
-            <span>CSS</span>
+          </Tooltip>
+          <Tooltip tooltip="CSS">
             <img src={css} alt="CSS" />
-          </div>
-          <div className="tooltip-container">
-            <span>Postgre</span>
+          </Tooltip>
+          <Tooltip tooltip="Postgre">
             <img src={postgre} alt="Postgre" />
-          </div>
+          </Tooltip>
         </Card>
       </CardsContainer>
     </Container>
