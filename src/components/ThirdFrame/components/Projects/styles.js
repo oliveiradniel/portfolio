@@ -24,12 +24,17 @@ export const Project = styled.div`
 
   .image {
     width: 50%;
+
+    @media (max-width: 600px) {
+      display: none;
+    }
   }
 
   .information {
     display: flex;
     flex-direction: column;
     padding: 16px;
+    width: 100%;
 
     p {
       font-weight: 600;
