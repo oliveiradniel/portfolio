@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 import flagOfBrazil from '../../assets/icons/pt-br.svg';
 import flagOfUSA from '../../assets/icons/eua.svg';
-import arrow from '../../assets/icons/arrow.svg';
+import arrow from '../../assets/icons/arrow-header.svg';
 
 import Option from './components/Option';
 
