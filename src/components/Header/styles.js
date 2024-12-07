@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export const Container = styled.div`
   background-color: ${({ theme }) => theme.colors.primary.main};
@@ -32,7 +32,11 @@ export const Select = styled.button`
 
   .arrow {
     transition: transform 0.2s ease-in;
-    transform: ${({ isTheLanguageSelectionOpen }) =>
-      isTheLanguageSelectionOpen ? 'rotate(180deg)' : 'rotate(0deg)'};
+
+    ${({ $isTheLanguageSelectionOpen }) =>
+      $isTheLanguageSelectionOpen &&
+      css`
+        transform: rotate(180deg);
+      `}
   }
 `;
