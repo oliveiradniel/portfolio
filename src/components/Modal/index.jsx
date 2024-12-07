@@ -1,5 +1,9 @@
+import { createPortal } from 'react-dom';
+
 import { Overlay } from './styles';
 
 export default function Modal() {
-  return <Overlay>Modal</Overlay>;
+  const container = document.getElementById('modal-root');
+
+  return createPortal(<Overlay>Modal</Overlay>, container);
 }
