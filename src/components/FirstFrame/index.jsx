@@ -50,7 +50,6 @@ export default function FirstFrame() {
             speed={70}
             timeToExecute={1050}
           />
-
         </GreetingContainer>
         <Button onClick={ScrollToSecondFrame} $wasItClicked={wasItClicked}>
           {'< Clique aqui e veja meus serviços />'}
