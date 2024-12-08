@@ -1,10 +1,12 @@
+import PropTypes from 'prop-types';
+
 import projects from './projects';
 
 import Tooltip from '../Tooltip';
 
 import { Project, Container } from './styles';
 
-export default function Projects() {
+export default function Projects({ onOpenModal }) {
   return (
     <Container>
       {projects.map((project) => (
@@ -24,7 +26,7 @@ export default function Projects() {
                 </Tooltip>
               ))}
             </div>
-            <button type="button" onClick={() => console.log('info')}>
+            <button type="button" onClick={onOpenModal}>
               + INFORMAÇÕES
             </button>
           </div>
@@ -33,3 +35,7 @@ export default function Projects() {
     </Container>
   );
 }
+
+Projects.propTypes = {
+  onOpenModal: PropTypes.func.isRequired,
+};

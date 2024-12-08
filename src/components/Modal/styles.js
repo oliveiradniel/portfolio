@@ -5,6 +5,7 @@ export const Overlay = styled.div`
   background-color: rgba(0, 0, 0, 0.6);
   backdrop-filter: blur(4px);
   display: flex;
+  flex-direction: column;
   height: 100%;
   justify-content: center;
   left: 0;
@@ -13,6 +14,18 @@ export const Overlay = styled.div`
   top: 0;
   width: 100%;
   z-index: 1;
+
+  .close {
+    background-color: transparent;
+    border: none;
+    margin-bottom: 32px;
+
+    transition: opacity 0.2s ease-in-out;
+
+    &:hover {
+      opacity: 0.6;
+    }
+  }
 `;
 
 export const Container = styled.div`
