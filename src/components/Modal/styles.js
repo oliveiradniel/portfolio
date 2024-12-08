@@ -1,4 +1,14 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
+
+const fadeIn = keyframes`
+  from { opacity: 0 }
+  to { opacity: 1 }
+`;
+
+const scaleIn = keyframes`
+  from { transform: scale(0) }
+  to { transform: scale(1) }
+`;
 
 export const Overlay = styled.div`
   align-items: center;
@@ -15,6 +25,8 @@ export const Overlay = styled.div`
   width: 100%;
   z-index: 1;
 
+  animation: ${fadeIn} 0.3s ease-in-out;
+
   .close {
     background-color: transparent;
     border: none;
@@ -30,6 +42,8 @@ export const Overlay = styled.div`
 
 export const Container = styled.div`
   display: flex;
+
+  animation: ${scaleIn} 0.3s ease-in-out;
 
   @media (max-width: 1100px) {
     display: block;
