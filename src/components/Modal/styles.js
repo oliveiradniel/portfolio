@@ -1,13 +1,23 @@
-import styled, { keyframes } from 'styled-components';
+import styled, { css, keyframes } from 'styled-components';
 
 const fadeIn = keyframes`
   from { opacity: 0 }
   to { opacity: 1 }
 `;
 
+const fadeOut = keyframes`
+  from { opacity: 1 }
+  to { opacity: 0 }
+`;
+
 const scaleIn = keyframes`
   from { transform: scale(0) }
   to { transform: scale(1) }
+`;
+
+const scaleOut = keyframes`
+  from { transform: scale(1) }
+  to { transform: scale(0) }
 `;
 
 export const Overlay = styled.div`
@@ -27,6 +37,12 @@ export const Overlay = styled.div`
 
   animation: ${fadeIn} 0.3s ease-in-out;
 
+  ${({ $isLeaving }) =>
+    $isLeaving &&
+    css`
+      animation: ${fadeOut} 0.2s ease-in-out forwards;
+    `}
+
   .close {
     background-color: transparent;
     border: none;
@@ -44,6 +60,12 @@ export const Container = styled.div`
   display: flex;
 
   animation: ${scaleIn} 0.3s ease-in-out;
+
+  ${({ $isLeaving }) =>
+    $isLeaving &&
+    css`
+      animation: ${scaleOut} 0.2s ease-in-out forwards;
+    `}
 
   @media (max-width: 1100px) {
     display: block;

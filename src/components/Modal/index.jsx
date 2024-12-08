@@ -1,3 +1,4 @@
+import { useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 
 import PropTypes from 'prop-types';
@@ -9,18 +10,47 @@ import close from '../../assets/icons/close.svg';
 import { Container, Overlay } from './styles';
 
 export default function Modal({ isVisible, onCloseModal }) {
-  if (!isVisible) {
+  const [shouldRender, setShouldRender] = useState(isVisible);
+
+  const overlayRef = useRef(null);
+
+  useEffect(() => {
+    if (isVisible) {
+      setShouldRender(true);
+    }
+
+    function handleAnimationEnd() {
+      setShouldRender(false);
+    }
+
+    const { current: overlayRefElement } = overlayRef;
+
+    if (!isVisible && overlayRefElement) {
+      overlayRefElement.addEventListener('animationend', handleAnimationEnd);
+    }
+
+    return () => {
+      if (overlayRefElement) {
+        overlayRefElement.removeEventListener(
+          'animationend',
+          handleAnimationEnd
+        );
+      }
+    };
+  }, [isVisible]);
+
+  if (!shouldRender) {
     return null;
   }
 
   const container = document.getElementById('modal-root');
 
   return createPortal(
-    <Overlay>
+    <Overlay $isLeaving={!isVisible} ref={overlayRef}>
       <button type="button" onClick={onCloseModal} className="close">
         <img src={close} alt="Close" width={32} />
       </button>
-      <Container>
+      <Container $isLeaving={!isVisible}>
         {options.map((option) => (
           <div key={option.key} className="card">
             <figure>
