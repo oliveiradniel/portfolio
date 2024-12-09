@@ -2,22 +2,18 @@ import styled, { css, keyframes } from 'styled-components';
 
 const optionsIn = keyframes`
   from {
-    opacity: 0;
     transform: translateY(0px);
   }
   to {
-    opacity: 1;
     transform: translateY(40px);
   }
 `;
 
 const optionsOut = keyframes`
   from {
-    opacity: 1;
     transform: translateY(40px);
   }
   to {
-    opacity: 0;
     transform: translateY(0px);
   }
 `;
@@ -30,23 +26,12 @@ export const Container = styled.div`
   cursor: pointer;
   display: flex;
   height: 22px;
-  opacity: 0;
   position: absolute;
   padding: 8px 16px;
   width: 130px;
   -webkit-backdrop-filter: blur(3px);
 
-  ${({ $isVisible, $animationTriggered }) =>
-    $isVisible
-      ? css`
-          animation: ${optionsIn} 0.2s forwards;
-        `
-      : !$isVisible &&
-        $animationTriggered &&
-        css`
-          animation: ${optionsOut} 0.2s forwards;
-        `}
-
+  animation: ${optionsIn} 0.3s forwards;
   transition: background-color 0.2s ease-in;
 
   &:hover {
@@ -56,6 +41,12 @@ export const Container = styled.div`
   & + & {
     margin-top: 24px;
   }
+
+  ${({ $isLeaving }) =>
+    $isLeaving &&
+    css`
+      animation: ${optionsOut} 0.2s forwards;
+    `}
 
   span {
     font-size: 12px;

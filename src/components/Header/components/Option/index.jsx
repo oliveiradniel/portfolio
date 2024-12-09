@@ -1,6 +1,6 @@
-import { useEffect, useState } from 'react';
-
 import PropTypes from 'prop-types';
+
+import useAnimatedUnmount from '../../../../hooks/useAnimatedUnmount';
 
 import flagOfBrazil from '../../../../assets/icons/pt-br.svg';
 import flagOfUSA from '../../../../assets/icons/eua.svg';
@@ -8,19 +8,19 @@ import flagOfUSA from '../../../../assets/icons/eua.svg';
 import { Container } from './styles';
 
 export default function Option({ isVisible, language, onClick }) {
-  const [animationTriggered, setAnimationTriggered] = useState(false);
+  const { shouldRender, animatedElementRef } = useAnimatedUnmount({
+    isVisible,
+  });
 
-  useEffect(() => {
-    if (isVisible && !animationTriggered) {
-      setAnimationTriggered(true);
-    }
-  }, [isVisible, animationTriggered]);
+  if (!shouldRender) {
+    return null;
+  }
 
   return (
     <Container
-      $animationTriggered={animationTriggered}
-      $isVisible={isVisible}
       onClick={onClick}
+      ref={animatedElementRef}
+      $isLeaving={!isVisible}
     >
       <img
         src={language === 'Português' ? flagOfBrazil : flagOfUSA}
