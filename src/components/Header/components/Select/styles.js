@@ -5,6 +5,11 @@ const fadeIn = keyframes`
   to { opacity: 1; transform: translateY(0) }
 `;
 
+const fadeOut = keyframes`
+  from { opacity: 1; transform: translateY(0); }
+  to { opacity: 0; transform: translateY(-30px) }
+`;
+
 export const Container = styled.div`
   margin-left: 80px;
   position: relative;
@@ -43,7 +48,13 @@ export const OptionsContainer = styled.div`
   padding: 4px;
   position: absolute;
 
-  animation: ${fadeIn} 0.3s;
+  animation: ${fadeIn} 0.3s forwards;
+
+  ${({ $isLeaving }) =>
+    $isLeaving &&
+    css`
+      animation: ${fadeOut} 0.2s forwards;
+    `}
 
   hr {
     background-color: #fff;

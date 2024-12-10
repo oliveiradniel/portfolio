@@ -25,6 +25,7 @@ export default function Header() {
         selectedLanguage={selectedLanguage}
         onClick={handleClickSelect}
         onSelectedLanguage={handleSelectedLanguage}
+        onClose={() => setIsTheLanguageSelectionOpen(false)}
       />
     </Container>
   );

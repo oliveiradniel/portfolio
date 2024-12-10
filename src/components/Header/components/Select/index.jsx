@@ -1,4 +1,8 @@
 import PropTypes from 'prop-types';
+
+import { useCallback, useEffect } from 'react';
+import useAnimatedUnmount from '../../../../hooks/useAnimatedUnmount';
+
 import flagOfBrazil from '../../../../assets/icons/pt-br.svg';
 import flagOfUSA from '../../../../assets/icons/eua.svg';
 import arrow from '../../../../assets/icons/arrow-header.svg';
@@ -8,11 +12,35 @@ import { Container, OptionsContainer, SelectContainer } from './styles';
 export default function Select({
   isOpen,
   onClick,
+  onClose,
   selectedLanguage,
   onSelectedLanguage,
 }) {
+  const { shouldRender, animatedElementRef } = useAnimatedUnmount({
+    isVisible: isOpen,
+  });
+
+  const handleClickOutsideTheSelect = useCallback(
+    (event) => {
+      if (!event.target.closest('#select')) {
+        onClose();
+      }
+    },
+    [onClose]
+  );
+
+  useEffect(() => {
+    if (isOpen) {
+      document.addEventListener('click', handleClickOutsideTheSelect);
+    }
+
+    return () => {
+      document.removeEventListener('click', handleClickOutsideTheSelect);
+    };
+  }, [handleClickOutsideTheSelect, isOpen]);
+
   return (
-    <Container>
+    <Container id="select">
       <SelectContainer type="button" onClick={onClick} $isOpen={isOpen}>
         {selectedLanguage === 'Portuguese' ? (
           <img src={flagOfBrazil} alt="Brasil" width={20} />
@@ -21,8 +49,8 @@ export default function Select({
         )}
         <img src={arrow} alt="Arrow" width={18} />
       </SelectContainer>
-      {isOpen && (
-        <OptionsContainer>
+      {shouldRender && (
+        <OptionsContainer ref={animatedElementRef} $isLeaving={!isOpen}>
           <button
             type="button"
             onClick={() => onSelectedLanguage('Portuguese')}
@@ -44,6 +72,7 @@ export default function Select({
 Select.propTypes = {
   selectedLanguage: PropTypes.string.isRequired,
   onClick: PropTypes.func.isRequired,
+  onClose: PropTypes.func.isRequired,
   isOpen: PropTypes.bool.isRequired,
   onSelectedLanguage: PropTypes.func.isRequired,
 };
