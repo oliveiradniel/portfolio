@@ -133,10 +133,6 @@ export const Button = styled.button`
     &::after {
       left: 0;
     }
-
-    .arrow {
-      animation: ${moveIn} 0.6s forwards;
-    }
   }
 
   .arrow {
@@ -145,6 +141,8 @@ export const Button = styled.button`
     opacity: 0;
     position: absolute;
     z-index: 1;
+
+    animation: ${moveIn} 0.6s forwards;
 
     ${({ $wasItClicked }) =>
       $wasItClicked

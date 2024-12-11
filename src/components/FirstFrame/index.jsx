@@ -13,6 +13,7 @@ import { Button, Container, Content, DescriptionContainer, GreetingContainer, So
 
 export default function FirstFrame() {
   const [wasItClicked, setWasItClicked] = useState(false);
+  const [arrowVisible, setArrowVisible] = useState(false);
 
   function delay(ms) {
     return new Promise(resolve => {setTimeout(resolve, ms)});
@@ -51,14 +52,21 @@ export default function FirstFrame() {
             timeToExecute={1050}
           />
         </GreetingContainer>
-        <Button onClick={ScrollToSecondFrame} $wasItClicked={wasItClicked}>
+        <Button
+          onClick={ScrollToSecondFrame}
+          $wasItClicked={wasItClicked}
+          onMouseEnter={() => setArrowVisible(true)}
+          onMouseLeave={() => setArrowVisible(false)}
+        >
           {'< Clique aqui e veja meus serviços />'}
-          <img
-            src={arrow}
-            alt="Arrow"
-            width={40}
-            className="arrow"
-          />
+          {arrowVisible && (
+            <img
+              src={arrow}
+              alt="Arrow"
+              width={40}
+              className="arrow"
+            />
+          )}
         </Button>
         <DescriptionContainer>
           <p>
