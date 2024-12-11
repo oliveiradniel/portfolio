@@ -2,6 +2,8 @@
 
 import { useState } from 'react';
 
+import useAnimatedUnmount from '../../hooks/useAnimatedUnmount';
+
 import github from '../../assets/icons/github.svg';
 import linkedin from '../../assets/icons/linkedin.svg';
 import instagram from '../../assets/icons/instagram.svg';
@@ -14,6 +16,8 @@ import { Button, Container, Content, DescriptionContainer, GreetingContainer, So
 export default function FirstFrame() {
   const [wasItClicked, setWasItClicked] = useState(false);
   const [arrowVisible, setArrowVisible] = useState(false);
+
+  const { shouldRender, animatedElementRef } = useAnimatedUnmount({ isVisible: arrowVisible })
 
   function delay(ms) {
     return new Promise(resolve => {setTimeout(resolve, ms)});
@@ -57,10 +61,12 @@ export default function FirstFrame() {
           $wasItClicked={wasItClicked}
           onMouseEnter={() => setArrowVisible(true)}
           onMouseLeave={() => setArrowVisible(false)}
+          $isLeaving={!arrowVisible}
         >
           {'< Clique aqui e veja meus serviços />'}
-          {arrowVisible && (
+          {shouldRender && (
             <img
+              ref={animatedElementRef}
               src={arrow}
               alt="Arrow"
               width={40}

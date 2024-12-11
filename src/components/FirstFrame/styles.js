@@ -18,6 +18,17 @@ const moveIn = keyframes`
   }
 `;
 
+const moveOut = keyframes`
+  from {
+    opacity: 1;
+    left: 50%;
+  }
+  to {
+    opacity: 0;
+    left: 0;
+  }
+`;
+
 export const Container = styled.div`
   display: flex;
   justify-content: center;
@@ -142,7 +153,13 @@ export const Button = styled.button`
     position: absolute;
     z-index: 1;
 
-    animation: ${moveIn} 0.6s forwards;
+    animation: ${moveIn} 0.3s forwards;
+
+    ${({ $isLeaving }) =>
+      $isLeaving &&
+      css`
+        animation: ${moveOut} 0.2s forwards;
+      `}
 
     ${({ $wasItClicked }) =>
       $wasItClicked
