@@ -11,7 +11,7 @@ import arrow from '../../assets/icons/arrow-button.svg';
 
 import Typewriter from '../Typewriter';
 
-import { Button, Container, Content, DescriptionContainer, GreetingContainer, SocialMediaContainer } from './styles';
+import { Arrow, Button, Container, Content, DescriptionContainer, GreetingContainer, SocialMediaContainer } from './styles';
 
 export default function FirstFrame() {
   const [wasItClicked, setWasItClicked] = useState(false);
@@ -58,19 +58,18 @@ export default function FirstFrame() {
         </GreetingContainer>
         <Button
           onClick={ScrollToSecondFrame}
-          $wasItClicked={wasItClicked}
           onMouseEnter={() => setArrowVisible(true)}
           onMouseLeave={() => setArrowVisible(false)}
-          $isLeaving={!arrowVisible}
-        >
+          >
           {'< Clique aqui e veja meus serviços />'}
           {shouldRender && (
-            <img
+            <Arrow
               ref={animatedElementRef}
               src={arrow}
               alt="Arrow"
               width={40}
-              className="arrow"
+              $isLeaving={!arrowVisible}
+              $wasItClicked={wasItClicked}
             />
           )}
         </Button>

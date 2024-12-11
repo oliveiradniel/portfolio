@@ -43,6 +43,81 @@ export const Content = styled.div`
   width: 100%;
 `;
 
+export const GreetingContainer = styled.div`
+  margin-top: 58px;
+  height: 80px;
+  text-align: end;
+`;
+
+export const Button = styled.button`
+  align-items: center;
+  background-image: linear-gradient(
+    to left,
+    rgb(255, 249, 91),
+    rgb(211, 212, 80)
+  );
+  border: 0.5px solid ${({ theme }) => theme.colors.backgroundColor};
+  border-radius: 4px;
+  box-shadow: 8px 20px 20px -22px rgba(0, 0, 0, 0.25);
+  display: flex;
+  font-size: 16px;
+  font-weight: 200;
+  height: 54px;
+  justify-content: center;
+  margin-top: 80px;
+  position: relative;
+  width: 100%;
+
+  transition: border 0.4s ease-in-out;
+
+  &::after {
+    background-color: ${({ theme }) => theme.colors.backgroundColor};
+    border-radius: 4px;
+    content: '';
+    height: 100%;
+    left: -102%;
+    position: absolute;
+    top: 0;
+    width: 100%;
+
+    transition: left 0.3s ease-in-out;
+  }
+
+  &:hover {
+    border: 0.5px solid ${({ theme }) => theme.colors.text.lighter};
+
+    &::after {
+      left: 0;
+    }
+  }
+`;
+
+export const Arrow = styled.img`
+  cursor: pointer;
+  left: 0;
+  opacity: 0;
+  position: absolute;
+  z-index: 1;
+
+  animation: ${moveIn} 0.3s forwards;
+
+  ${({ $isLeaving }) =>
+    $isLeaving &&
+    css`
+      animation: ${moveOut} 0.2s forwards;
+    `}
+
+  ${({ $wasItClicked }) =>
+    $wasItClicked
+      ? css`
+          transition: transform 0.2s ease-in;
+          transform: rotate(90deg);
+        `
+      : css`
+          transform: rotate(0deg);
+        `}
+`;
+
 export const DescriptionContainer = styled.div`
   font-weight: 600;
   margin-top: 10px;
@@ -95,80 +170,5 @@ export const SocialMediaContainer = styled.div`
         }
       }
     }
-  }
-`;
-
-export const GreetingContainer = styled.div`
-  margin-top: 58px;
-  height: 80px;
-  text-align: end;
-`;
-
-export const Button = styled.button`
-  align-items: center;
-  background-image: linear-gradient(
-    to left,
-    rgb(255, 249, 91),
-    rgb(211, 212, 80)
-  );
-  border: 0.5px solid ${({ theme }) => theme.colors.backgroundColor};
-  border-radius: 4px;
-  box-shadow: 8px 20px 20px -22px rgba(0, 0, 0, 0.25);
-  display: flex;
-  font-size: 16px;
-  font-weight: 200;
-  height: 54px;
-  justify-content: center;
-  margin-top: 80px;
-  position: relative;
-  width: 100%;
-
-  transition: border 0.4s ease-in-out;
-
-  &::after {
-    background-color: ${({ theme }) => theme.colors.backgroundColor};
-    border-radius: 4px;
-    content: '';
-    height: 100%;
-    left: -102%;
-    position: absolute;
-    top: 0;
-    width: 100%;
-
-    transition: left 0.3s ease-in-out;
-  }
-
-  &:hover {
-    border: 0.5px solid ${({ theme }) => theme.colors.text.lighter};
-
-    &::after {
-      left: 0;
-    }
-  }
-
-  .arrow {
-    cursor: pointer;
-    left: 0;
-    opacity: 0;
-    position: absolute;
-    z-index: 1;
-
-    animation: ${moveIn} 0.3s forwards;
-
-    ${({ $isLeaving }) =>
-      $isLeaving &&
-      css`
-        animation: ${moveOut} 0.2s forwards;
-      `}
-
-    ${({ $wasItClicked }) =>
-      $wasItClicked
-        ? css`
-            transition: transform 0.2s ease-in;
-            transform: rotate(90deg);
-          `
-        : css`
-            transform: rotate(0deg);
-          `}
   }
 `;
